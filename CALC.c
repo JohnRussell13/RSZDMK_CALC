@@ -61,6 +61,7 @@ char ocitaj_taster()
   return taster;
 }
 
+//pretvara string u broj
 int ubroji(char a, char b)
 {
   	int x = 0, p = 1;
@@ -74,6 +75,7 @@ int ubroji(char a, char b)
     return x;
 }
 
+//popunjava nizove brojeva i operatora
 void ocitaj_brojeve(int *br, char *znaci, char i, char *k)
 {
   	char j = 0;
@@ -90,6 +92,7 @@ void ocitaj_brojeve(int *br, char *znaci, char i, char *k)
     }
 }
 
+//vrsi operacije sa brojevima po pravilnom redosledu
 int izracunaj(char i)
 {
   	char znaci[8];
@@ -160,7 +163,7 @@ int main()
 	while(1)
     { 
 	  char taster = ocitaj_taster();
-      if (taster != 0 && taster != '#')
+      if (taster != 0 && taster != '#') //brani taster #
       {
         lcd.print(taster);
       	_delay_ms(500);
@@ -173,6 +176,7 @@ int main()
         lcd.print(izracunaj(i));
         while(1)
         {
+          //cisti ekran nakon pritiska # i omogucave ponovno koristenje
           if(ocitaj_taster() == '#')  
           {
             lcd.clear();
